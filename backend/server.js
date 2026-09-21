@@ -12,7 +12,13 @@ import orderRoutes from './routes/orderRoutes.js';
 connectDB();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://mern-shopcart-ecommerce.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
